@@ -1,0 +1,6 @@
+---
+:base_path: "/gemstash"
+:cache_type: memory
+:db_adapter: sqlite3
+:rubygems_url: https://www.rubygems.org
+:bind: tcp://0.0.0.0:9292
