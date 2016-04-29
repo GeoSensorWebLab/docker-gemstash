@@ -36,9 +36,13 @@ This will allow you to destroy the container and re-create it, and not lose your
 
 ## Authentication
 
-The above method means your gem cache will be accessible on port 9292 without any authentication. Anyone that can access that host will be able to use your gem cache.
+The above method means your gem cache will be accessible on port 9292 without any authentication. Anyone that can access that host will be able to use your gem cache. Instead, requests to the gem cache can be proxied through a server that provides [basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
 
-TODO: Add info on auth
+I would recommend you publish your gemstash container's ports to localhost, then proxy requests to your container from nginx or HAProxy or similar. Once you have your proxy set up with basic authentication, you must then tell Bundler on your developer machine(s) to use that auth for access:
+
+    $ bundle config dockerhost.example.com username:password
+
+This must be configured for each developer.
 
 ## License
 
